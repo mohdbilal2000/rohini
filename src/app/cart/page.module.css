@@ -1,0 +1,314 @@
+.title {
+    margin: 0 0 var(--space-8) 0;
+}
+
+/* Cart Layout */
+.cartLayout {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+}
+
+@media (min-width: 1024px) {
+    .cartLayout {
+        grid-template-columns: 1fr 380px;
+        gap: var(--space-12);
+    }
+}
+
+/* Cart Header */
+.cartHeader {
+    display: none;
+    padding: var(--space-4) 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+}
+
+@media (min-width: 768px) {
+    .cartHeader {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1fr 40px;
+        gap: var(--space-4);
+        align-items: center;
+    }
+}
+
+.headerQuantity,
+.headerTotal {
+    text-align: center;
+}
+
+/* Cart Item */
+.cartItem {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+    padding: var(--space-6) 0;
+    border-bottom: 1px solid var(--color-border);
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    .cartItem {
+        grid-template-columns: 2fr 1fr 1fr 1fr 40px;
+        gap: var(--space-4);
+        align-items: center;
+    }
+}
+
+.itemProduct {
+    display: flex;
+    gap: var(--space-4);
+}
+
+.itemImageLink {
+    flex-shrink: 0;
+}
+
+.itemImage {
+    position: relative;
+    width: 80px;
+    height: 100px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    background-color: var(--color-gray-100);
+}
+
+@media (min-width: 768px) {
+    .itemImage {
+        width: 100px;
+        height: 120px;
+    }
+}
+
+.image {
+    object-fit: cover;
+}
+
+.itemDetails {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+}
+
+.itemCategory {
+    font-size: var(--text-xs);
+    font-weight: var(--font-medium);
+    color: var(--color-gold-dark);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    margin: 0;
+}
+
+.itemName {
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+    margin: 0;
+}
+
+.itemName a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.itemName a:hover {
+    color: var(--color-burgundy);
+}
+
+.itemArtisan {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+/* Mobile labels */
+.priceLabel,
+.quantityLabel,
+.totalLabel {
+    display: inline;
+    font-weight: var(--font-medium);
+    margin-right: var(--space-2);
+}
+
+@media (min-width: 768px) {
+
+    .priceLabel,
+    .quantityLabel,
+    .totalLabel {
+        display: none;
+    }
+}
+
+.itemPrice,
+.itemQuantity,
+.itemTotal {
+    font-size: var(--text-sm);
+}
+
+@media (min-width: 768px) {
+    .itemPrice {
+        text-align: left;
+    }
+
+    .itemQuantity,
+    .itemTotal {
+        text-align: center;
+    }
+}
+
+/* Quantity Control */
+.quantityControl {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-1);
+}
+
+.quantityBtn {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-secondary);
+    border-radius: var(--radius-sm);
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.quantityBtn:hover {
+    background-color: var(--color-gray-100);
+    color: var(--color-text-primary);
+}
+
+.quantityValue {
+    min-width: 32px;
+    text-align: center;
+    font-weight: var(--font-medium);
+}
+
+.totalValue {
+    font-weight: var(--font-semibold);
+}
+
+.removeBtn {
+    position: absolute;
+    top: var(--space-4);
+    right: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-muted);
+    border-radius: var(--radius-md);
+    transition: color var(--transition-fast), background-color var(--transition-fast);
+}
+
+@media (min-width: 768px) {
+    .removeBtn {
+        position: static;
+    }
+}
+
+.removeBtn:hover {
+    color: var(--color-error);
+    background-color: rgba(220, 38, 38, 0.1);
+}
+
+.continueLink {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: var(--space-6);
+    font-size: var(--text-sm);
+    font-weight: var(--font-medium);
+    color: var(--color-burgundy);
+    text-decoration: none;
+    transition: gap var(--transition-fast);
+}
+
+.continueLink:hover {
+    gap: var(--space-3);
+}
+
+/* Order Summary */
+.summary {
+    position: sticky;
+    top: calc(var(--header-height) + var(--space-4));
+    align-self: start;
+    padding: var(--space-6);
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+}
+
+.summaryTitle {
+    font-size: var(--text-xl);
+    margin: 0 0 var(--space-6) 0;
+}
+
+.summaryRow {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--text-sm);
+    padding: var(--space-3) 0;
+}
+
+.freeShipping {
+    color: var(--color-success);
+    font-weight: var(--font-medium);
+}
+
+.shippingNote {
+    font-size: var(--text-xs);
+    color: var(--color-success);
+    margin: 0 0 var(--space-2) 0;
+}
+
+.summaryDivider {
+    height: 1px;
+    background-color: var(--color-border);
+    margin: var(--space-4) 0;
+}
+
+.summaryTotal {
+    font-size: var(--text-lg);
+    font-weight: var(--font-bold);
+}
+
+.taxNote {
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+    margin: var(--space-1) 0 var(--space-6) 0;
+}
+
+.trustBadges {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-6);
+    margin-top: var(--space-4);
+    font-size: var(--text-xs);
+    color: var(--color-text-muted);
+}
+
+/* Empty Cart */
+.emptyCart {
+    text-align: center;
+    padding: var(--space-16) 0;
+}
+
+.emptyTitle {
+    margin: 0 0 var(--space-4) 0;
+}
+
+.emptyText {
+    color: var(--color-text-secondary);
+    margin: 0 0 var(--space-8) 0;
+}

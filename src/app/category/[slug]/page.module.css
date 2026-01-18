@@ -1,0 +1,126 @@
+/* Category Header */
+.header {
+    padding: var(--space-8) 0 var(--space-12);
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .header {
+        padding: var(--space-12) 0 var(--space-16);
+    }
+}
+
+.title {
+    margin: 0 0 var(--space-4) 0;
+}
+
+.description {
+    font-size: var(--text-lg);
+    color: var(--color-text-secondary);
+    max-width: 640px;
+    margin: 0 auto var(--space-4);
+}
+
+.count {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+/* SEO Content */
+.seoContent {
+    padding-bottom: var(--space-12);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.seoText {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.seoTitle {
+    font-size: var(--text-xl);
+    margin: 0 0 var(--space-4) 0;
+}
+
+.seoText p {
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+}
+
+/* Toolbar */
+.toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-bottom: var(--space-8);
+    padding-bottom: var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+}
+
+@media (min-width: 640px) {
+    .toolbar {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.showing {
+    font-size: var(--text-sm);
+    color: var(--color-text-muted);
+    margin: 0;
+}
+
+.filters {
+    display: flex;
+    gap: var(--space-4);
+}
+
+.sortSelect {
+    padding: var(--space-2) var(--space-4);
+    background-color: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    color: var(--color-text-primary);
+    cursor: pointer;
+    min-width: 160px;
+}
+
+.sortSelect:focus {
+    outline: none;
+    border-color: var(--color-gold);
+}
+
+/* Products Grid */
+.productsGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+}
+
+@media (min-width: 640px) {
+    .productsGrid {
+        gap: var(--space-6);
+    }
+}
+
+@media (min-width: 768px) {
+    .productsGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .productsGrid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Empty State */
+.empty {
+    text-align: center;
+    padding: var(--space-16) 0;
+    color: var(--color-text-muted);
+}
