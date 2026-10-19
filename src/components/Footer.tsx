@@ -1,67 +1,42 @@
 import Link from "next/link";
 import { site } from "@/lib/site";
 
-const cols = [
-  {
-    title: "Shop",
-    links: [
-      ["/collections/all", "Shop all"],
-      ["/collections/necklace-sets", "Necklace sets"],
-      ["/collections/earrings", "Earrings"],
-      ["/collections/bangles", "Bangles"],
-      ["/collections/rings", "Rings"],
-      ["/collections/bridal", "Bridal"],
-    ],
-  },
-  {
-    title: "Help",
-    links: [
-      ["/faq", "FAQs"],
-      ["/shipping-returns", "Shipping and returns"],
-      ["/contact", "Contact us"],
-      ["/journal/how-to-care-for-plated-jewellery", "Jewellery care"],
-    ],
-  },
-  {
-    title: "Astavita",
-    links: [
-      ["/about", "About us"],
-      ["/journal", "Journal"],
-      ["/privacy-policy", "Privacy policy"],
-      ["/terms", "Terms of service"],
-    ],
-  },
-];
-
 export default function Footer() {
   return (
     <footer className="footer">
       <div className="wrap footer__grid">
-        <div className="footer__brand">
-          <span className="logo">ASTAVITA</span>
-          <p>{site.description}</p>
-          <p>
-            <a href={`mailto:${site.email}`}>{site.email}</a>
-          </p>
+        <div>
+          <h2 className="footer__title">Know More</h2>
+          <ul>
+            <li><Link href="/about">Our Story</Link></li>
+            <li><Link href="/journal">Journal</Link></li>
+            <li><Link href="/faq">FAQs</Link></li>
+            <li><Link href="/shipping-returns">Shipping and Returns</Link></li>
+            <li><Link href="/privacy-policy">Privacy Policy</Link></li>
+            <li><Link href="/terms">Terms of Service</Link></li>
+          </ul>
         </div>
-        {cols.map((c) => (
-          <div key={c.title}>
-            <h2 className="footer__title">{c.title}</h2>
-            <ul>
-              {c.links.map(([href, label]) => (
-                <li key={href}>
-                  <Link href={href}>{label}</Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        <div>
+          <h2 className="footer__title">Shop</h2>
+          <ul>
+            <li><Link href="/collections/necklace-sets">Necklaces</Link></li>
+            <li><Link href="/collections/earrings">Earrings</Link></li>
+            <li><Link href="/collections/bangles">Bangles</Link></li>
+            <li><Link href="/collections/rings">Rings</Link></li>
+            <li><Link href="/collections/bridal">Bridal</Link></li>
+          </ul>
+        </div>
+        <div>
+          <h2 className="footer__title">Contact</h2>
+          <ul>
+            <li><a href={`mailto:${site.email}`}>{site.email.toUpperCase()}</a></li>
+            <li><Link href="/contact">Write to us</Link></li>
+            <li><a href={site.instagram} target="_blank" rel="noopener">Instagram</a></li>
+          </ul>
+        </div>
       </div>
-      <div className="wrap footer__base">
-        <span>© {new Date().getFullYear()} {site.name}. All rights reserved.</span>
-        <a href={site.instagram} rel="noopener" target="_blank">
-          Instagram
-        </a>
+      <div className="footer__base">
+        © {new Date().getFullYear()}, <strong>ASTAVITA</strong>. All rights reserved.
       </div>
     </footer>
   );

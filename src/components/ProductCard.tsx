@@ -8,17 +8,16 @@ export default function ProductCard({ product, priority = false }: { product: Pr
   return (
     <Link href={`/products/${product.slug}`} className="card">
       <div className="card__media">
-        <Image
-          src={product.image}
-          alt={product.imageAlt}
-          fill
-          sizes="(max-width: 700px) 50vw, (max-width: 1100px) 33vw, 25vw"
-          priority={priority}
-        />
-        {off > 0 && <span className="card__tag">{off}% off</span>}
+        <Image src={product.image} alt={product.imageAlt} fill sizes="(max-width: 700px) 50vw, (max-width: 1100px) 33vw, 25vw" priority={priority} />
+        {off > 0 && (
+          <span className="ribbon" aria-label={`${off}% off`}>
+            <span>{off}%</span>
+          </span>
+        )}
       </div>
       <h3 className="card__name">{product.name}</h3>
       <p className="card__price">
+        {off > 0 ? "On sale " : ""}
         {formatPrice(product.price)}
         {off > 0 && <s>{formatPrice(product.compareAt!)}</s>}
       </p>

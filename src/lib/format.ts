@@ -4,7 +4,12 @@ const inr = new Intl.NumberFormat("en-IN", {
   maximumFractionDigits: 0,
 });
 
+// Shown the way Indian stores write it: "Rs. 8,450.00".
 export function formatPrice(value: number) {
+  return `Rs. ${value.toLocaleString("en-IN")}.00`;
+}
+
+export function formatInr(value: number) {
   return inr.format(value);
 }
 
