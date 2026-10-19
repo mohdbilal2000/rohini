@@ -372,6 +372,11 @@ h3 {
 .hero__dots button.is-active {
   background: var(--white);
 }
+@media (min-width: 1000px) {
+  .hero {
+    height: min(72vh, 680px);
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   .hero__slide,
   .drawer__panel,
