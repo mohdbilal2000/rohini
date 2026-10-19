@@ -1,57 +1,40 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Astavita
 
-## Getting Started
+Online jewellery store for astavita.co, built with Next.js 16 (App Router). Every page is pre-rendered as static HTML.
 
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-### Quick Deploy Steps:
-
-1. **Push your code to GitHub/GitLab/Bitbucket** (if not already done)
-2. **Go to [vercel.com](https://vercel.com)** and sign in
-3. **Click "Add New..." → "Project"**
-4. **Import your Git repository**
-5. **Vercel will auto-detect Next.js** - no configuration needed!
-6. **Click "Deploy"**
-
-Your site will be live in minutes at `your-project-name.vercel.app`
-
-### Using Vercel CLI:
+## Run locally
 
 ```bash
-npm i -g vercel
-vercel login
-vercel --prod
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # production build
 ```
 
-For detailed deployment instructions, see [DEPLOYMENT.md](./DEPLOYMENT.md)
+## Where to edit
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| What | File |
+|---|---|
+| Brand name, email, WhatsApp number, shipping fee, free-shipping limit, return days | `src/lib/site.ts` |
+| Products, prices, collections | `src/lib/catalog.ts` |
+| FAQs and journal articles | `src/lib/content.ts` |
+| Colours, fonts, layout | `src/app/globals.css` |
+| Photos | `public/images/` (replace a file with the same name; sources in `public/images/CREDITS.md`) |
+
+## Before launch
+
+1. Replace the sample products and photos with real stock.
+2. Set `whatsapp` in `src/lib/site.ts`. Orders are sent to WhatsApp (or email if it is empty); no payment gateway is connected yet.
+3. Check the shipping, returns, privacy and terms text matches how you actually work.
+
+## SEO, AEO and GEO
+
+- Unique title, description, canonical URL and Open Graph image on every page.
+- Structured data: Organization, WebSite search, Product with offer, shipping and return policy, BreadcrumbList, CollectionPage, FAQPage and Article.
+- `sitemap.xml`, `robots.txt` (search engines and AI crawlers allowed; cart, checkout and search blocked) and `llms.txt` (plain-text summary for AI assistants).
+- Old URLs from the previous site redirect permanently to the new pages (`next.config.ts`).
+
+## Deploy (Vercel + Hostinger domain)
+
+1. Import this repository at vercel.com and deploy (no settings needed).
+2. In Vercel, Project → Settings → Domains, add `astavita.co` and `www.astavita.co`.
+3. In Hostinger, DNS for astavita.co: set an `A` record for `@` to `76.76.21.21` and a `CNAME` for `www` to `cname.vercel-dns.com`. Use the exact values Vercel shows if they differ.
