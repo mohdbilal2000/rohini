@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Figtree, Playfair_Display } from "next/font/google";
+import { Figtree, Libre_Caslon_Text } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -7,7 +7,7 @@ import { CartProvider } from "@/components/CartProvider";
 import { JsonLd, absoluteUrl } from "@/lib/seo";
 import { site } from "@/lib/site";
 
-const display = Playfair_Display({ variable: "--font-display", subsets: ["latin"], weight: ["400", "500"], style: ["normal", "italic"], display: "swap" });
+const display = Libre_Caslon_Text({ variable: "--font-display", subsets: ["latin"], weight: ["400", "700"], style: ["normal", "italic"], display: "swap" });
 const body = Figtree({ variable: "--font-body", subsets: ["latin"], weight: ["300", "400", "500", "600"], display: "swap" });
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   formatDetection: { telephone: false, email: false, address: false },
 };
 
-export const viewport: Viewport = { themeColor: "#FFFFFF" };
+export const viewport: Viewport = { themeColor: "#F7F2ED" };
 
 const orgLd = [
   {

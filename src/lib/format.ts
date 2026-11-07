@@ -4,9 +4,9 @@ const inr = new Intl.NumberFormat("en-IN", {
   maximumFractionDigits: 0,
 });
 
-// Shown the way Indian stores write it: "Rs. 8,450.00".
+// Indian rupee with Indian digit grouping: "₹8,450".
 export function formatPrice(value: number) {
-  return `Rs. ${value.toLocaleString("en-IN")}.00`;
+  return `₹${value.toLocaleString("en-IN")}`;
 }
 
 export function formatInr(value: number) {
